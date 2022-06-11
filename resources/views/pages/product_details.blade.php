@@ -424,7 +424,7 @@
                     if($rat->customer_img != NULL){
                     ?>
                     <div class="col-sm-6">
-                        <img src="{{URL::to('public/uploads/customer/'.$info->customer_img)}}" height="35" width ="35" class="rounded-circle"  alt=""> <span style="font-size: 20px;margin-left: 5px">{{$rat ->customer_name}}</span> 
+                        <img src="{{URL::to('public/uploads/customer/'.$rat->customer_img)}}" height="35" width ="35" class="rounded-circle"  alt=""> <span style="font-size: 20px;margin-left: 5px">{{$rat ->customer_name}}</span> 
                         
                     </div>
                     <div  class="col-sm-6">

@@ -200,7 +200,7 @@
                                 ?>
                                        <br> <br>     
                                 <a href="{{URL::to('/product_details/'.$pro->product_id)}}" >  
-                                <img src="{{URL::to('public/uploads/product/'.$pro->product_image)}}" alt="">
+                                <img src="{{URL::to('public/uploads/product/'.$pro->product_image)}}"  alt="">
                                 </a>
                                             
                             </div>
@@ -354,27 +354,24 @@
       <div class=" best_product_slider owl-carousel" >
         @foreach($wedding_product as $key => $wedd)
           <div class="single_product_item" style="background: linear-gradient(to bottom,#fff 0%,#f7f7f7 100%);" >
-            <div class="product_image" style="position: relative; height:300px; weight: 250px; text-align: center;">
+            <div class="product_image" style="position: relative; height:300px; weight: 250px;">
                 <?php
                    if($wedd->discount_percent >0) {
                 ?>
                 <div class="discount_product_4" >-{{$wedd->discount_percent}}%</div>
-                <div class="discount_product_3" > <img src="{{URL::to('public/uploads/discount/'.$pro->discount_image)}}"  alt=""></div>
+                <div class="discount_product_3" > <img src="{{URL::to('public/uploads/discount/'.$wedd->discount_image)}}"  alt=""></div>
                 
                 <?php
                   } else {
                 ?>
                 <div class="discount_product_5" > <img src="{{ asset('public/frontend/images/new_product.svg')}}"  alt=""></div>
-                <div class="discount_product_3" > <img src="{{URL::to('public/uploads/discount/'.$pro->discount_image)}}"  alt=""></div>
+                <div class="discount_product_3" > <img src="{{URL::to('public/uploads/discount/'.$wedd->discount_image)}}"  alt=""></div>
                 <?php
                   }
                 ?>
-                
-                <br> <br> 
-                
                                                             
                 <a href="{{URL::to('/product_details/'.$wedd->product_id)}}" >  
-                <img src="{{URL::to('public/uploads/product/'.$wedd->product_image)}}" alt="">
+                <img src="{{URL::to('public/uploads/product/'.$wedd->product_image)}}" height="230" width="200" alt="">
                 </a>
                                             
             </div>
@@ -410,56 +407,7 @@
   </div>
 </section>
 
-    <!-- <section id="services" class="services">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bi bi-briefcase"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="bi bi-bar-chart"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="bi bi-binoculars"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><i class="bi bi-brightness-high"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>End Services Section -->
+    
 
     <!-- ======= Portfolio Section ======= -->
     
