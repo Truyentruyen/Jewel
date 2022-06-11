@@ -77,22 +77,7 @@
                                 $message =Session::get('rating');
                     ?>
 
-<!-- <section class="breadcrumb breadcrumb_bg" style=" background-color: #6e5f4b; background-image: url({{ asset('public/frontend/images/breadcrumb5.jpg') }});">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="breadcrumb_iner">
-            <div class="breadcrumb_iner_item">
-              <h2>Shop Single</h2>
-              <p>Home <span>-</span> Shop Single</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
-<!--================Single Product Area =================-->
 
 <div id="bill" class ="container" >
   @foreach($details_product as $key => $det_pro)
@@ -178,7 +163,7 @@
 </div>
 
 
-<section >
+
   @foreach($details_product as $key => $det_pro)
   <div class="product_image_area section_padding">
     <div class="container">
@@ -291,7 +276,7 @@
       </div>
     </div>
   </div>
-</section>
+
   <section class="product_description_area">
     <div class="container">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -335,150 +320,168 @@
           
         </div>
         <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="row total_rate">
-                <div class="col-6">
-                  <div class="box_total">
-                    <h5>Overall</h5>
-                    <h4>4.0</h4>
-                    <h6>(03 Reviews)</h6>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="rating_list">
-                    <h3>Based on 3 Reviews</h3>
-                    <ul class="list">
-                      <li>
-                        <a href="#">5 Star
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i> 01</a>
-                      </li>
-                      <li>
-                      <a href="#">4 Star
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i> 01</a>
-                      </li>
-                      <li>
-                      <a href="#">3 Star
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i> 01</a>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="review_list">
+        <div class="card"  style="width: 600px">
+    		<div class="card-header">Sample Product</div>
+    		<div class="card-body">
+    			<div class="row">
+    				<div class="col-sm-4 text-center">
+      
+    					<h1 class="text-warning mt-4 mb-4">
+              @php
+                $rating
+                @endphp
+             
+    						<b><span >{{$rating}}</span> / 5</b>
+    					</h1>
+    					<div class="mb-3">
+              @for($count = 1; $count <=5; $count++)
+                @php
+                  if($count <= $rating){
+                    $color = 'color:#ffcc00;';
+                  }
+                  else{
+                    $color = 'color:#ccc;';
+                  }
+                @endphp
+                 <i class="bi bi-star star-light mr-1 main_star" style="cursor:pointer; {{$color}} f"></i>
+                @endfor            
+	    				</div>
+    					<h3>Review</h3>
+             
+    				</div>
+    				<!-- <div class="col-sm-4">
+    					<p>
+                            <div class="progress-label-left"><b>5</b> <i class="bi bi-star text-warning"></i></div>
+
+                            <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
+                            </div>
+                        </p>
+    					<p>
+                            <div class="progress-label-left"><b>4</b> <i class="bi bi-star text-warning"></i></div>
+                            
+                            <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
+                            </div>               
+                        </p>
+    					<p>
+                            <div class="progress-label-left"><b>3</b> <i class="bi bi-star text-warning"></i></div>
+                            
+                            <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
+                            </div>               
+                        </p>
+    					<p>
+                            <div class="progress-label-left"><b>2</b> <i class="bi bi-star text-warning"></i></div>
+                            
+                            <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
+                            </div>               
+                        </p>
+    					<p>
+                            <div class="progress-label-left"><b>1</b> <i class="bi bi-star text-warning"></i></div>
+                            
+                            <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
+                            </div>               
+                        </p>
+    				</div> -->
+    				<div class="col-sm-4 text-center" style="margin-left: 100px">
+    					<h4 class="mt-4 mb-3">Write Review Here</h4>
+              <?php
+                                $customer_id= Session::get('customer_id');
+                                if($customer_id==NULL) {
+
+                             ?>
+                             <button type="button" href="{{URL::to('/login_customer')}}" id="add_review" class="btn btn-primary">Review</button>    
+                            <?php
+                            }else {
+                            ?>
+                            <button type="button" onclick="add_review()" id="add_review" class="btn btn-primary">Review</button>
+                            <?php
+                            }
+                            ?>
+    					
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    <br> <br>
+
+      <div class="col-lg-6">
+              <div class="review_box">
+                <h4>Post a comment</h4>
+                @foreach($rating_review as $key => $rat)
                 <div class="review_item">
                   <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-1.png" alt="" />
+                    <div class="row" style="background-color: #82c1ee">
+                    <?php
+                    if($rat->customer_img != NULL){
+                    ?>
+                    <div class="col-sm-6">
+                        <img src="{{URL::to('public/uploads/customer/'.$info->customer_img)}}" height="35" width ="35" class="rounded-circle"  alt=""> <span style="font-size: 20px;margin-left: 5px">{{$rat ->customer_name}}</span> 
+                        
                     </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="bi bi-star"></i>
-                      <i class="bi bi-star"></i>
-                      <i class="bi bi-star"></i>
-                      <i class="bi bi-star"></i>
-                      <i class="bi bi-star"></i>
+                    <div  class="col-sm-6">
+                    <span style="margin-left: 100px;color: black">{{$rat ->created_at_review}}</span>
                     </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-                
-                
-                  <div class="form-group">
-                  <?php
-                                    $customer_id= Session::get('customer_id');
-                                    
-                                    if($customer_id==NULL ) {
-
-                                ?> 
-                                <p></p>
-                                <?php
-                                }else {
-                                ?>
-                    <label for="rating"> Rating</label>
+                    <?php
+                    }else{
+                        ?>
+                        <div class="col-sm-6">
+                        <img src="{{ asset('public/frontend/images/anh_cua_hang.jpg') }}" height="35" width ="35" class="rounded-circle" alt=""> <span style="font-size: 20px;margin-left: 5px">{{$rat ->customer_name}}</span> 
+                        </div>
+                        <div class="col-sm-6" >
+                        <span style="margin-left: 100px; color: black">{{$rat ->created_at_review}}</span>
+                        </div>
+                        <?php
+                    } ?>
                     
-                    <ul class="list-inline" title="Average Rating">
-                      @for($count = 1; $count <=5; $count++)
-                      @php
+                    </div>
+                   
+                      <div class="media-body" style=" margin-left: 10%">
                         
-                          $color = 'color:#ffcc00;';
+
+                        @for($count = 1; $count <=5; $count++)
+                          @php
+                          $rating_user = $rat->rating;
+                            if($count <= $rating_user){
+                              $color = 'color:#ffcc00;';
+                            }
+                            else{
+                              $color = 'color:#ccc;';
+                            }
+                          @endphp
+                        <i class="bi bi-star" style="{{$color}}"></i>
                         
-                      @endphp
-                      
-                                <li title = "star_rating" 
-                                  id = "{{$det_pro->product_id}}" 
-                                  data-index="{{$count}}"
-                                  data-product_id ="{{$det_pro->product_id}}" 
-                                  data-customer_id ="{{$customer_id}}" 
-                                  data-rating ="{{$rating_cmmt}}"
-                                  class="rating_cmmt list-inline-item" 
-                                  style="cursor:pointer; {{$color}} font-size: 30px;">&#9733;
-                                </li>
-                                @endfor
-                                <?php
-                                }
-                                
-                                ?>
-                     
-                      
-                    </ul>
-                    <form action="{{URL::to('/save-cmmt/'.$det_pro->product_id)}}"method ="POST">
-                    {{csrf_field()}}
-
-                    <label for="comment">Comment:</label>
-                    <textarea name="cmmt_rating" class="form-control" rows="5" id="comment"></textarea>
-                                <br>
-                                  <?php
-                                    $customer_id= Session::get('customer_id');
-                                    
-                                    if($customer_id==NULL ) {
-
-                                ?> 
-                                <a style="background-color: #57bad1; border: 2px solid #57bad1; margin-left: 80%" class="btn_3" href="{{URL::to('/login_customer')}}">SUBMIT</a>    
-                                
-                                <?php
-                                }else {
-                                ?>
-                                <input style="background-color:#57bad1; border: 2px solid #57bad1;margin-left: 80%" type="submit" class="btn_3" value="submit" name="add_cart">
-                                <?php
-                                }
-                                ?>
-
-                
-                  </div>
-
-            
-            </form>
-                
+                      @endfor
+                      </div>
+                      <span style=" margin-left: 10%">
+                          {{$rat ->comments}}
+                          </span>
+                    </div>
+                    
+                    
+                        
+                </div>
+                <hr>
+                @endforeach
               </div>
-            </div>
-            
-          </div>
+      </div>
+      
+    </div>
         </div>
       </div>
     </div>
   </section>
   @endforeach
   <!-- product_list part start-->
- <section class="product_list best_seller section_padding">
+  <section class="product_list best_seller section_padding">
  
         <div class="container">
             <div class="row justify-content-center">
@@ -536,10 +539,51 @@
                 </div>
             </div>
         </div>
-    </section>
+  </section>
     <!-- product_list part end-->
   
-  
+    <div id="review_modal" class="modal" tabindex="-1" role="dialog">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+	      	<div class="modal-header">
+	        	<h5 class="modal-title">Submit Review</h5>
+	        	<button type="button" onclick="close_review()" class="close" data-dismiss="modal" aria-label="Close">
+	          		<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
+          @foreach($details_product as $key => $det_pro)
+          
+          <?php
+          $customer_id_2= Session::get('customer_id');
+          
+          ?>
+	      	<div class="modal-body">
+	      		<h4 class="text-center mt-2 mb-4">
+	        	      	<i class="bi bi-star star-light submit_star mr-1" data-customer_id="{{$customer_id_2}}" data-product_id="{{$det_pro->product_id}}"  id="submit_star_1" data-rating="1"></i>
+                    <i class="bi bi-star star-light submit_star mr-1" data-customer_id="{{$customer_id_2}}" data-product_id="{{$det_pro->product_id}}" id="submit_star_2" data-rating="2"></i>
+                    <i class="bi bi-star star-light submit_star mr-1" data-customer_id="{{$customer_id_2}}" data-product_id="{{$det_pro->product_id}}" id="submit_star_3" data-rating="3"></i>
+                    <i class="bi bi-star star-light submit_star mr-1" data-customer_id="{{$customer_id_2}}" data-product_id="{{$det_pro->product_id}}" id="submit_star_4" data-rating="4"></i>
+                    <i class="bi bi-star star-light submit_star mr-1" data-customer_id="{{$customer_id_2}}" data-product_id="{{$det_pro->product_id}}" id="submit_star_5" data-rating="5"></i>
+	        	</h4>
+            @foreach($customer as $key => $cus)
+	        	<div class="form-group">
+	        		<h1 >{{$cus->customer_name}}</h1>
+	        	</div>
+            @endforeach
+	        	<div class="form-group">
+	        		<textarea name="user_review"   id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+	        	</div>
+	        	<div class="form-group text-center mt-4">
+            
+            <button type="button" class="btn btn-primary" id="save_review">Submit</button>
+	        	</div>
+	      	</div>
+         
+         @endforeach
+    	</div>
+  	</div>
+</div>
+
   
   <!--================End Product Description Area =================-->
   @endsection 
@@ -548,78 +592,95 @@
 
 
 <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="8RYmjQsT"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-      function remove_background(product_id)
-        {
-            for(var count = 1; count <= 5; count ++){
-                $('#'+product_id+'-'+count).css('color','#ccc');
-            }
-        }
-        $(document).ready(function(){
-            $(".rating_cmmt").hover(function(){
-                var index = $(this).data('index');
-                var product_id = $(this).data('product_id');
-                var customer_id = $(this).data('customer_id');
-                remove_background(product_id);
-                for(var count = 1; count <= index; count ++){
-                  console.log(index);
-                    $('#'+product_id+'-'+count).css('color','#ffcc00');
-                }
-            });
-        });
-        $(document).ready(function(){
-            $(".rating_cmmt").hover(function(){
-                var index = $(this).data('index');
-                var product_id = $(this).data('product_id');
-                var customer_id = $(this).data('customer_id');
-                var rating = $(this).data('rating');
-                remove_background(product_id);
-                for(var count = 1; count <= rating; count ++){
-                    $('#'+product_id+'-'+count).css('color','#ffcc00');
-                }
-            });
-        });
-        // $(document).on('mouseleave','.rating_cmmt', function(){
-        //     var index = $(this).data("index");
-        //     var product_id = $(this).data('product_id');
-        //     var customer_id = $(this).data('customer_id');
-        //     var rating = $(this).data('rating');
-        //     remove_background(product_id);
-        //     for(var count = 1; count <= rating; count ++){
-        //         $('#'+product_id+'-'+count).css('color','#ffcc00');
-        //     }
-        // });
-        $(document).ready(function(){
-            $("li.rating_cmmt").click (function(){
-                var index = $(this).data("index");
-                var product_id = $(this).data('product_id');
-                var customer_id = $(this).data('customer_id');
-                var _token = $('input[name = "_token"]').val();
-                $.ajax({
-                    url:'{{url('/insert_rating')}}',
-                    method:"POST",
-                    data:{index:index, product_id:product_id,customer_id:customer_id,_token:_token},
-                    success:function(data){
-                        $(document).ready(function(){
-                            $('.rating_cmmt').mouseleave(function(){
-                                var index = $(this).data('index');
-                                var product_id = $(this).data('product_id');
-                                var customer_id = $(this).data('customer_id');
-                                remove_background(product_id);
-                                for(var count = 1; count <= index; count ++){
-                                    $('#'+product_id+'-'+count).css('color','#ffcc00');
-                                }
-                            });
+      var rating_data = 0;
+      var product_id =0;
+      var customer_id =0;
+      
+
+      
+      function add_review() {
+            
+             document.getElementById("review_modal").style.display = "block";
+          
+            document.getElementById("body").style.background = "#9797a3a6";
+          };
+      $(document).on('mouseenter', '.submit_star', function(){
+
+          var rating = $(this).data('rating');
+
+          reset_background();
+
+          for(var count = 1; count <= rating; count++)
+          {
+
+              $('#submit_star_'+count).addClass('text-warning');
+
+          }
+
+          });
+
+          function reset_background()
+          {
+          for(var count = 1; count <= 5; count++)
+          {
+
+              $('#submit_star_'+count).addClass('star-light');
+
+              $('#submit_star_'+count).removeClass('text-warning');
+
+          }
+          }
+
+          $(document).on('mouseleave', '.submit_star', function(){
+
+          reset_background();
+
+          for(var count = 1; count <= rating_data; count++)
+          {
+
+              $('#submit_star_'+count).removeClass('star-light');
+
+              $('#submit_star_'+count).addClass('text-warning');
+          }
+
+          });
+
+          $(document).on('click', '.submit_star', function(){
+
+          rating_data = $(this).data('rating');
+          product_id = $(this).data('product_id');
+          customer_id = $(this).data('customer_id');
+          
+          });
+
+          $(document).ready (function() {
+                    $(document).on('click','#save_review', function() {
+                        var user_review = $('#user_review').val();
+                        var data_rating = rating_data;
+                        var id_product = product_id;
+                        var id_customer = customer_id;
+                        var _token =$('input[name="_token"]').val();
+                            $.ajax({
+                            url:"{{url('/review_rating')}}",
+                            method: "POST",
+                            data:{data_rating:data_rating,id_customer:id_customer, id_product:id_product,user_review:user_review,_token:_token},
+
+                            success:function(data) {
+                              
+                              document.getElementById("review_modal").style.display = "none";
+                              document.getElementById("body").style.background = "white";
+                        }
                         });
-                    }
-                    })
-            });
-        });
+                       
+
+                    });
+                });
+               
 
 
-        
           function myFunction() {
             
             document.getElementById("bill").style.display = "block";
@@ -628,6 +689,11 @@
           function myFunction_exitbuy() {
             
             document.getElementById("bill").style.display = "none";
+            document.getElementById("body").style.background = "white";
+          };
+          function close_review() {
+            
+            document.getElementById("review_modal").style.display = "none";
             document.getElementById("body").style.background = "white";
           };
         

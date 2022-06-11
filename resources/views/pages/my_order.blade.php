@@ -35,7 +35,7 @@
                     <?php
                     }else{
                         ?>
-                        <img src="{{ asset('public/frontend/images/favicon.png') }}" height="35" width ="35" class="rounded-circle" alt=""> 
+                        <img src="{{ asset('public/frontend/images/anh_cua_hang.jpg') }}" height="35" width ="35" class="rounded-circle" alt=""> 
                         <?php
                     } ?> <span style="font-size:20px;margin-left: 20px; ">  <b style="color:white">{{$info->customer_name}}</b> </span>
                         <h5 style="margin-left: 50px; color: white">{{$info->customer_email}}</h5>

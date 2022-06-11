@@ -100,8 +100,8 @@ Route::post('/reset_new_password', 'App\Http\Controllers\AdminController@reset_n
     Route::get('/category_product/{category_id}', 'App\Http\Controllers\categoryproduct@show_category_product');
      // Chi-Tiết-Sản-Phẩm
      Route::get('/product_details/{product_id}', 'App\Http\Controllers\Productcontroller@product_details');
-     Route::post('/save-cmmt/{product_id}', 'App\Http\Controllers\Productcontroller@save_cmmt');
-     Route::post('/insert_rating', 'App\Http\Controllers\Productcontroller@insert_rating');
+    //  Route::post('/save-cmmt/{product_id}', 'App\Http\Controllers\Productcontroller@save_cmmt');
+     Route::post('/review_rating', 'App\Http\Controllers\Productcontroller@review_rating');
     
      // Contact
      Route::get('/contact', 'App\Http\Controllers\HomeController@contact');

@@ -124,7 +124,7 @@ class Checkoutcontroller extends Controller
                 DB::table('tbl_cart')->delete();
             }
            $adrress_billing=DB::table('tbl_billing')
-           ->join('tbl_customer','tbl_customer.customer_id','=','tbl_billing.customer_id')->where('tbl_billing.customer_id',$customer_id)->get();   
+           ->join('tbl_customer','tbl_customer.customer_id','=','tbl_billing.customer_id')->where('tbl_billing.customer_id',$customer_id) ->where('tbl_billing.billing_status','1')->get();   
            $cate_payment= DB::table('tbl_payment')->orderby('payment_id','desc')->get();
            $product=Cart::content()->count();
             if($product==NULL){
@@ -170,6 +170,7 @@ class Checkoutcontroller extends Controller
         $data['billing_address'] = $request->address_billing;
         $data['billing_phone'] = $request->phone_billing;
         $data['billing_email'] = $request->email_billing;
+        $data['billing_status'] = 1;
         
         $billing_id= DB::table('tbl_billing')->insertGetId($data);
         Session::put('billing_id',$billing_id);
@@ -177,7 +178,8 @@ class Checkoutcontroller extends Controller
         
     }
     public function delete_billing($billing_id) {
-        DB::table('tbl_billing')->where('billing_id',$billing_id)->delete();
+        DB::table('tbl_billing')->where('billing_id',$billing_id)->update(['billing_status'=>0]);
+        
         return Redirect::to('/checkout');
     }
 

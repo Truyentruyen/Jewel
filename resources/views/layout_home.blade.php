@@ -8,11 +8,12 @@
   <title>Jewels</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  <meta name ='csrf-token' content="{{csrf_token()}}">
   <!-- Favicons -->
   <link href="{{ asset('public/frontend/images/favicon.png')}}" rel="icon">
   <link href="{{ asset('public/frontend/images/apple-touch-icon.png')}}" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -198,7 +199,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Flattern</h3>
+            <h3>ABC Jewel</h3>
             <p>
               A108 Adam Street <br>
               New York, NY 535022<br>
@@ -315,7 +316,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
     <script src="{{asset('public/frontend/js/js_2/jquery.form-validator.min.js')}}"></script>
     
-</body><script type="text/javascript">
+</body>
+<script type="text/javascript">
         $(document).ready(function(){
             $('.add_cart').click(function(){
                 var id = $(this).data('id_product');
@@ -349,8 +351,10 @@
                 });
             });
         });
+
         
 
     </script>
+    
 
 </html>

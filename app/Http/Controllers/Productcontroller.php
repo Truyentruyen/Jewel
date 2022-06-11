@@ -179,45 +179,47 @@ class Productcontroller extends Controller
         $rating = Rating::where('product_id',$product_id)->avg('rating');
         $rating = round($rating);
         $customer_id = Session::get('customer_id');
-        $rating_cmmt = Rating::where('product_id',$product_id)->avg('rating');
-        
+        $customer = DB::table('tbl_customer')->where('customer_id',$customer_id)->get();
+        $rating_review = Rating::where('product_id',$product_id)->join('tbl_customer','tbl_customer.customer_id','=','tbl_rating.customer_id')->get();
 
         return view('pages.product_details')->with('category',$cate_product)->with('details_product', $details_product)->with('related_products',$related_products)->with('image_detail_product',$image_detail_product)
         ->with('meta_desc',$meta_desc)->with('meta_title',$meta_title)->with('meta_keywords',$meta_keywords)->with('url_canonical', $url_canonical)->with('gallery_productsdetail',$gallery_productsdetail)
-        ->with('rating',$rating)->with('rating_cmmt',$rating_cmmt);
+        ->with('rating',$rating)->with('customer',$customer)->with('rating_review',$rating_review);
     }
-    public function save_cmmt(Request $request, $product_id) {
-        $data=array();
-        $product_rat = $product_id;
-        $customer_rat = Session::get('customer_id');
-        $rating = Session::get('rating'); 
-        if($rating) {
-        $data['comments'] = $request->cmmt_rating;
-        $rating_id= DB::table('tbl_rating')->where('product_id',$product_rat)->where('customer_id',$customer_rat)->where('rating',$rating)->update($data);
-        Session::put('rating_id',$rating_id);
-        return view('pages.product_details');
-        }
-        else{
-        $data['rating'] = 5;
-        $data['comments'] = $request->cmmt_rating;
-        $rating_id= DB::table('tbl_rating')->where('product_id',$product_rat)->where('customer_id',$customer_rat)->update($data);
-        Session::put('rating_id',$rating_id);
-        return view('pages.product_details');
-        }
+    // public function save_cmmt(Request $request, $product_id) {
+    //     $data=array();
+    //     $product_rat = $product_id;
+    //     $customer_rat = Session::get('customer_id');
+    //     $rating = Session::get('rating'); 
+    //     if($rating) {
+    //     $data['comments'] = $request->cmmt_rating;
+    //     $rating_id= DB::table('tbl_rating')->where('product_id',$product_rat)->where('customer_id',$customer_rat)->where('rating',$rating)->update($data);
+    //     Session::put('rating_id',$rating_id);
+    //     return view('pages.product_details');
+    //     }
+    //     else{
+    //     $data['rating'] = 5;
+    //     $data['comments'] = $request->cmmt_rating;
+    //     $rating_id= DB::table('tbl_rating')->where('product_id',$product_rat)->where('customer_id',$customer_rat)->update($data);
+    //     Session::put('rating_id',$rating_id);
+    //     return view('pages.product_details');
+    //     }
+        
+        
+    // }
+    public function review_rating (Request $request) {
+        
+            $rating = new Rating();
+            $rating-> product_id = $product_id;
+            $rating-> customer_id = $customer_id;
+            $rating-> rating = $data['data_rating'];
+            $rating-> comments = $data['user_review'];
+            $rating->save();
         
         
     }
-    public function insert_rating () {
-        $data = $request -> all();
-        $rating = new Rating();
-        $rating ->product_id = $data['product_id'];
-        $rating ->product_id = $data['customer_id'];
-        $rating -> rating = $data['index'];
-        Session::put('rating',$rating);
-        $rating->save();
-        
 
-    }
+    
 
 
 
