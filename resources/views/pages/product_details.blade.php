@@ -663,6 +663,10 @@
                         var id_product = product_id;
                         var id_customer = customer_id;
                         var _token =$('input[name="_token"]').val();
+                        if(user_review==''){
+                          alert("Please Fill Both Field");
+                          return false;
+                        }else{
                             $.ajax({
                             url:"{{url('/review_rating')}}",
                             method: "POST",
@@ -674,7 +678,7 @@
                               document.getElementById("body").style.background = "white";
                         }
                         });
-                       
+                      }
 
                     });
                 });

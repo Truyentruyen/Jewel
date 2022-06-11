@@ -46,12 +46,12 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="confirmation_tittle">
-            <span style="font-size: 30px; color: #4e390391">Thank you. Your order has been received.</span>
+            <span style="font-size: 30px; color: #3f8899c7">Thank you. Your order has been received.</span>
           </div>
         </div>
         <div class="col-lg-12 " >
           @foreach($info as $key => $info)
-          <div class="single_confirmation_details" style="background-color: #6e5f4b" >
+          <div class="single_confirmation_details" style="background-color: #3f8899c7" >
             <h4  style="color: white">{{$info->customer_name}}</h4>
             <ul>
               <li>
@@ -91,7 +91,7 @@
         </div>
         <div class="col-lg-12 " >
         
-          <div class="single_confirmation_details" style="background-color: #6e5f4b" >
+          <div class="single_confirmation_details" style="background-color: #3f8899c7" >
             <h4  style="color: white">Billing Address</h4>
             <ul>
             @foreach($bill as $key => $bill)
@@ -118,7 +118,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12" >
-          <div class="order_details_iner" style="background-color: #6e5f4b">
+          <div class="order_details_iner" style="background-color:#3f8899c7">
             <h3 style="color: black">Order Details</h3>
             <div class="cart_inner">
             <div class="table-responsive">

@@ -124,7 +124,7 @@ class Checkoutcontroller extends Controller
                 DB::table('tbl_cart')->delete();
             }
            $adrress_billing=DB::table('tbl_billing')
-           ->join('tbl_customer','tbl_customer.customer_id','=','tbl_billing.customer_id')->where('tbl_billing.customer_id',$customer_id) ->where('tbl_billing.billing_status','1')->get();   
+           ->join('tbl_customer','tbl_customer.customer_id','=','tbl_billing.customer_id')->where('tbl_billing.customer_id',$customer_id)->where('tbl_billing.billing_status','1')->get();   
            $cate_payment= DB::table('tbl_payment')->orderby('payment_id','desc')->get();
            $product=Cart::content()->count();
             if($product==NULL){

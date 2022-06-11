@@ -208,10 +208,10 @@ class Productcontroller extends Controller
         
     // }
     public function review_rating (Request $request) {
-        
+            $data= $request->all();
             $rating = new Rating();
-            $rating-> product_id = $product_id;
-            $rating-> customer_id = $customer_id;
+            $rating-> product_id = $data['id_product'];
+            $rating-> customer_id = $data['id_customer'];
             $rating-> rating = $data['data_rating'];
             $rating-> comments = $data['user_review'];
             $rating->save();

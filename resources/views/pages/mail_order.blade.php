@@ -79,7 +79,7 @@
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
                                     <tr>
                                         <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" class="mobile-center">
-                                            <h1 style="font-size: 36px; font-weight: 800; margin: 0; color: #ffffff;">Furniture</h1>
+                                            <h1 style="font-size: 36px; font-weight: 800; margin: 0; color: #ffffff;">ABC Jewelry</h1>
                                         </td>
                                     </tr>
                                 </table>
@@ -139,7 +139,7 @@
                                                 @endphp
 
                                             <tr>
-                                                <td> <img src="" alt="Girl in a jacket" width="100" height="100"> </td>
+                                                <td>  </td>
                                                 <td width="50%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> {{$cart['product_name']}}</td>
                                                 <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> {{$cart['product_qty']}}</td>
                                                 <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> ${{$cart['product_price']}}</td>

@@ -55,7 +55,7 @@
                 <br> <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="order_details" style="background-color:#4e390391;">
+                    <div class="order_details" style="background-color:#3f8899c7;">
                         <h3>Liệt Kê Chi Tiết Sản Phẩm</h3>  
                         <div class="cart_inner">
                             <div class="table-responsive">

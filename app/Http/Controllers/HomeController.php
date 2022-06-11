@@ -9,6 +9,8 @@ use Session;
 use Cart;
 use Carbon\Carbon;
 use App\Models\Customer;
+use App\Models\Product;
+
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
@@ -32,14 +34,19 @@ class HomeController extends Controller
         // $meta_keywords = "Shop Nội Thất";
         // $meta_title="furniture";
         // $url_canonical = $request->url();
-        
+        $link = "https://baonguyenduc.com/jewelry/API/recommender.py";
+        $data = file_get_contents($link);
+
+        $json_array = json_decode($data, false);
+            
+      
         $cate_product= DB::table('tbl_category_product')->where('categor_status','1')->whereNotIn('categor_id',[5])->orderby('categor_id','desc')->limit(6)->get();
         $all_product= DB::table('tbl_product')
         ->join('tbl_discount','tbl_discount.discount_id','=','tbl_product.discount_id')
         ->join('tbl_category_product','tbl_category_product.categor_id','=','tbl_product.categor_id')->where('product_status','1')->inRandomOrder()->limit(12)->get();
         
-        $all_product2= DB::table('tbl_product')
-        ->join('tbl_discount','tbl_discount.discount_id','=','tbl_product.discount_id')->where('product_status','1')->inRandomOrder()->limit(16)->get();
+        // $all_product2= DB::table('tbl_product')
+        // ->join('tbl_discount','tbl_discount.discount_id','=','tbl_product.discount_id')->where('product_status','1')->inRandomOrder()->limit(16)->get();
         
         $set_product= DB::table('tbl_product')
         ->join('tbl_discount','tbl_discount.discount_id','=','tbl_product.discount_id')->where('product_status','1')->where('categor_id','5')->inRandomOrder()->limit(16)->get();
@@ -47,7 +54,7 @@ class HomeController extends Controller
         $wedding_product= DB::table('tbl_product')
         ->join('tbl_discount','tbl_discount.discount_id','=','tbl_product.discount_id')->where('product_status','1')->where('categor_id','6,3')->inRandomOrder()->limit(16)->get();
         
-        return view('pages.home')->with('category', $cate_product)->with('product2',$all_product2)->with('set_product',$set_product)
+        return view('pages.home')->with('category', $cate_product)->with('product2',$json_array)->with('set_product',$set_product)
         ->with('wedding_product',$wedding_product)->with('product',$all_product);
         //->with('meta_desc',$meta_desc)->with('meta_title',$meta_title)->with('meta_keywords',$meta_keywords)->with('url_canonical', $url_canonical)
     }

@@ -157,7 +157,7 @@
 
 <section>
   <div class="" >
-       <h3 style="color: #5c2702">Category<span>shop</span></h3>
+       <h3 style="color: #5c2702;margin-left:120px">Category<span>shop</span></h3>
   </div>
   <div class="box_2" >
         @foreach($category as $key => $cate)
@@ -178,7 +178,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="">
-                        <h3 style="color: #5c2702">Best Sellers <span>shop</span></h2>
+                        <h3 style="color: #5c2702">Trending <span>Products</span></h2>
                     </div>
                 </div>
             </div>
@@ -189,39 +189,18 @@
                         <div class="single_product_item" style="background: linear-gradient(to bottom,#fff 0%,#f7f7f7 100%);" >
                                                     
                             <div class="product_image" style="position: relative; height:300px; weight: 250px; text-align: center;">
-                                <?php
-                                                    
-                                    if($pro->discount_percent >0) {
-                                ?>
-                                     <div class="discount_product" >-{{$pro->discount_percent}}%</div>
-                                                        
-                                     <?php
-                                     }
-                                ?>
-                                       <br> <br>     
-                                <a href="{{URL::to('/product_details/'.$pro->product_id)}}" >  
-                                <img src="{{URL::to('public/uploads/product/'.$pro->product_image)}}"  alt="">
+                                  
+                                <a href="{{URL::to('/product_details/'.$pro->id)}}" >  
+                                <img src="{{URL::to('public/uploads/product/'.$pro->image)}}"  alt="">
                                 </a>
                                             
                             </div>
                             <div class="single_product_text"   >
-                                <h4 style="color:#17a2b8" >{{$pro->product_name}}</h4>
+                                <h4 style="color:#17a2b8" >{{$pro->name}}</h4>
                                 <h3 style="color:#17a2b8" >
-                                                <?php
-                                                    
-                                                    if($pro->discount_percent > 0) {
-                                                ?>
-                                                <span style="text-decoration: line-through;color: #4abdcfb0;">{{'$'.number_format($pro->product_price).'.'.'99'}}</span>
-                                                <?php
-                                                        $price=(($pro->product_price)*(100-($pro->discount_percent)))/100;
-                                                            echo "$", $price ;
-                                                    
-                                                    }else{
-                                                ?>
-                                                {{'$'.number_format($pro->product_price).'.'.'99'}}
-                                                <?php
-                                                    }
-                                                    ?>
+                                                
+                                                {{'$'.number_format($pro->price).'.'.'99'}}
+                                                
                                 </h3>
                             </div>
                         </div>
@@ -235,7 +214,7 @@
 
 <section id="portfolio" class="portfolio">
       <div class="" >
-          <h3 style="color: #5c2702">Product</h2>
+          <h3 style="color: #5c2702; margin-left:120px">Product</h2>
       </div>
       <div class="container">
         <div class="row portfolio-container" data-aos="fade-up" >
@@ -310,7 +289,7 @@
                 <div class="discount_product_5" > <img src="{{ asset('public/frontend/images/new_product.svg')}}"  alt=""></div>
                                                             
                 <a href="{{URL::to('/product_details/'.$set->product_id)}}" >  
-                <img src="{{URL::to('public/uploads/product/'.$set->product_image)}}" alt="">
+                <img src="{{URL::to('public/uploads/product/'.$set->product_image)}}" height="230" width="250" alt="">
                 </a>
                                             
             </div>
