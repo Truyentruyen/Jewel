@@ -371,7 +371,7 @@
                 ?>
                                                             
                 <a href="{{URL::to('/product_details/'.$wedd->product_id)}}" >  
-                <img src="{{URL::to('public/uploads/product/'.$wedd->product_image)}}" height="230" width="200" alt="">
+                <img src="{{URL::to('public/uploads/product/'.$wedd->product_image)}}" height="250" width="250" alt="">
                 </a>
                                             
             </div>
